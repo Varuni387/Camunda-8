@@ -1,0 +1,59 @@
+{
+  "components": [
+    {
+      "label": "Weather",
+      "values": [
+        {
+          "label": "Hot",
+          "value": "Hot"
+        },
+        {
+          "label": "Cold",
+          "value": "Cold"
+        }
+      ],
+      "type": "radio",
+      "layout": {
+        "row": "Row_0srgm89",
+        "columns": null
+      },
+      "id": "Field_10zlcsu",
+      "key": "Weather",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Activity",
+      "values": [
+        {
+          "label": "Inside",
+          "value": "Inside"
+        },
+        {
+          "label": "Outside",
+          "value": "Outside"
+        }
+      ],
+      "type": "radio",
+      "layout": {
+        "row": "Row_0bnpqfw",
+        "columns": null
+      },
+      "id": "Field_0rnpkvt",
+      "key": "Activity",
+      "validate": {
+        "required": true
+      }
+    }
+  ],
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.6.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.31.0"
+  },
+  "schemaVersion": 18,
+  "id": "Form_05hqpd8",
+  "type": "default"
+}

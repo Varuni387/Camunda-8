@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1irqjzy" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.31.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.6.0">
+  <decision id="Decision_1hpbm8q" name="Decision 1">
+    <informationRequirement id="InformationRequirement_1wqwj10">
+      <requiredInput href="#InputData_062ycz9" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1iqzez5">
+      <requiredInput href="#InputData_07z6ymq" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1mwekg0" hitPolicy="FIRST">
+      <input id="Input_1" biodi:width="150">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>Weather</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0c08j79">
+        <inputExpression id="LiteralExpression_1iarbk7" typeRef="string">
+          <text>Activity</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" name="Clothes" typeRef="string" />
+      <rule id="DecisionRule_1g43q0k">
+        <inputEntry id="UnaryTests_0snzsbi">
+          <text>"Hot"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r26drw">
+          <text>"Outside"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_056iqwi">
+          <text>"Shorts"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1224glp">
+        <inputEntry id="UnaryTests_0z0l63w">
+          <text>"Hot"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12xiebl">
+          <text>"Inside"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15jd6tu">
+          <text>"Pants"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_18f0pzf">
+        <inputEntry id="UnaryTests_1oomg4k">
+          <text>"Cold"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1acsc0t">
+          <text>"Inside"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1655lr0">
+          <text>"Pants"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ogzklq">
+        <inputEntry id="UnaryTests_0wjih3m">
+          <text>"Cold"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p1bla0">
+          <text>"Outside"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ky7te8">
+          <text>"Jeans"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_07z6ymq" name="Weather" />
+  <inputData id="InputData_062ycz9" name="Activity" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1hpbm8q">
+        <dc:Bounds height="80" width="180" x="240" y="210" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_18zl8q6" dmnElementRef="InputData_07z6ymq">
+        <dc:Bounds height="45" width="125" x="158" y="67" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_08exot6" dmnElementRef="InputData_062ycz9">
+        <dc:Bounds height="45" width="125" x="387" y="67" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_065nrs1" dmnElementRef="InformationRequirement_1wqwj10">
+        <di:waypoint x="450" y="112" />
+        <di:waypoint x="360" y="190" />
+        <di:waypoint x="360" y="210" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1bg7kej" dmnElementRef="InformationRequirement_1iqzez5">
+        <di:waypoint x="221" y="112" />
+        <di:waypoint x="300" y="190" />
+        <di:waypoint x="300" y="210" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
