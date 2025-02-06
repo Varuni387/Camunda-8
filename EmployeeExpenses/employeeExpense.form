@@ -1,0 +1,165 @@
+{
+  "components": [
+    {
+      "label": "Employee Name",
+      "type": "textfield",
+      "id": "Textfield_0",
+      "validate": {
+        "minLength": 2,
+        "maxLength": 50,
+        "required": true
+      },
+      "key": "employeeName",
+      "layout": {
+        "row": "Row_0h2o9vm",
+        "columns": null
+      }
+    },
+    {
+      "label": "Employee ID",
+      "type": "textfield",
+      "id": "Textfield_1",
+      "validate": {
+        "minLength": 5,
+        "maxLength": 15,
+        "required": true
+      },
+      "key": "employeeID",
+      "layout": {
+        "row": "Row_0ykb02w",
+        "columns": null
+      }
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Departure Date",
+      "type": "datetime",
+      "layout": {
+        "row": "Row_0osyt3g",
+        "columns": null
+      },
+      "id": "Field_13fzv43",
+      "key": "departureDate"
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Arrival Date",
+      "type": "datetime",
+      "layout": {
+        "row": "Row_09qupzx",
+        "columns": null
+      },
+      "id": "Field_0x22uy6",
+      "key": "arrivalDate"
+    },
+    {
+      "label": "Travel Type",
+      "values": [
+        {
+          "value": "Domestic",
+          "label": "Domestic"
+        },
+        {
+          "value": "International",
+          "label": "International"
+        }
+      ],
+      "type": "radio",
+      "id": "Radio_4",
+      "validate": {
+        "required": true
+      },
+      "key": "travelType",
+      "layout": {
+        "row": "Row_0rl2v7p",
+        "columns": null
+      }
+    },
+    {
+      "label": "Travel Expenditure",
+      "type": "number",
+      "id": "Number_5",
+      "decimalDigits": 2,
+      "defaultValue": 0,
+      "appearance": {
+        "prefixAdorner": "₹"
+      },
+      "validate": {
+        "step": 1,
+        "required": true
+      },
+      "key": "travelExpenditure",
+      "layout": {
+        "row": "Row_1w722m2",
+        "columns": null
+      }
+    },
+    {
+      "label": "Stay Expenditure",
+      "type": "number",
+      "id": "Number_6",
+      "decimalDigits": 2,
+      "defaultValue": 0,
+      "appearance": {
+        "prefixAdorner": "₹"
+      },
+      "validate": {
+        "step": 1,
+        "required": true
+      },
+      "key": "stayExpenditure",
+      "layout": {
+        "row": "Row_1w722m2",
+        "columns": null
+      }
+    },
+    {
+      "label": "Meal Expenditure",
+      "type": "number",
+      "id": "Number_7",
+      "decimalDigits": 2,
+      "defaultValue": 0,
+      "appearance": {
+        "prefixAdorner": "₹"
+      },
+      "validate": {
+        "step": 1,
+        "required": true
+      },
+      "key": "mealExpenditure",
+      "layout": {
+        "row": "Row_17w01j0",
+        "columns": null
+      }
+    },
+    {
+      "label": "Miscellaneous Expenditure",
+      "type": "number",
+      "id": "Number_8",
+      "decimalDigits": 2,
+      "defaultValue": 0,
+      "appearance": {
+        "prefixAdorner": "₹"
+      },
+      "validate": {
+        "step": 1,
+        "required": true
+      },
+      "key": "miscellaneous",
+      "layout": {
+        "row": "Row_17w01j0",
+        "columns": null
+      }
+    }
+  ],
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.6.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.31.0"
+  },
+  "schemaVersion": 18,
+  "id": "Form_0kugs11",
+  "generated": true,
+  "type": "default"
+}

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1bd5v6a" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="e8c556f" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.6.0">
+  <bpmn:process id="Employee-Expense" name="Employee-expense" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Start">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formId="Form_0kugs11" />
+      </bpmn:extensionElements>
+      <bpmn:outgoing>Flow_06fyz53</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="Activity_0nlzi9m" name="Check for reimbursement">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="expenses" />
+        <zeebe:taskHeaders>
+          <zeebe:header key="Java class" value="expenses" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_06fyz53</bpmn:incoming>
+      <bpmn:outgoing>Flow_099b4ed</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_0o3dgmn" name="Is 100% reimbursement possible?">
+      <bpmn:incoming>Flow_099b4ed</bpmn:incoming>
+      <bpmn:outgoing>Flow_17b9ny5</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1qvup3d</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_06fyz53" sourceRef="StartEvent_1" targetRef="Activity_0nlzi9m" />
+    <bpmn:sequenceFlow id="Flow_099b4ed" sourceRef="Activity_0nlzi9m" targetRef="Gateway_0o3dgmn" />
+    <bpmn:task id="Activity_0bxy9d2" name="Entire expense will be reimbursed by the company">
+      <bpmn:incoming>Flow_17b9ny5</bpmn:incoming>
+      <bpmn:outgoing>Flow_1xr8aeu</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_17b9ny5" name="100% reimbursement possible" sourceRef="Gateway_0o3dgmn" targetRef="Activity_0bxy9d2">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=amountToBePaid = 0</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:task id="Activity_0zx1jo5" name="Entire expense will not be reimbursed by the company">
+      <bpmn:incoming>Flow_1qvup3d</bpmn:incoming>
+      <bpmn:outgoing>Flow_11bnjg3</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1qvup3d" name="100% reimbursement not possible" sourceRef="Gateway_0o3dgmn" targetRef="Activity_0zx1jo5">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=amountToBePaid &gt; 0</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:endEvent id="Event_08l378i" name="End">
+      <bpmn:incoming>Flow_1xr8aeu</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_11bnjg3" sourceRef="Activity_0zx1jo5" targetRef="Activity_05i58ro" />
+    <bpmn:task id="Activity_05i58ro" name="Amount to be paid">
+      <bpmn:incoming>Flow_11bnjg3</bpmn:incoming>
+      <bpmn:outgoing>Flow_19i90r4</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1xr8aeu" sourceRef="Activity_0bxy9d2" targetRef="Event_08l378i" />
+    <bpmn:endEvent id="Event_0baioeu" name="End">
+      <bpmn:incoming>Flow_19i90r4</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_19i90r4" sourceRef="Activity_05i58ro" targetRef="Event_0baioeu" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Employee-Expense">
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="362" y="212" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="369" y="255" width="24" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0nlzi9m_di" bpmnElement="Activity_0nlzi9m">
+        <dc:Bounds x="500" y="190" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0o3dgmn_di" bpmnElement="Gateway_0o3dgmn" isMarkerVisible="true">
+        <dc:Bounds x="675" y="205" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="744" y="210" width="74" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0bxy9d2_di" bpmnElement="Activity_0bxy9d2">
+        <dc:Bounds x="790" y="90" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0zx1jo5_di" bpmnElement="Activity_0zx1jo5">
+        <dc:Bounds x="790" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_08l378i_di" bpmnElement="Event_08l378i">
+        <dc:Bounds x="1052" y="112" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1060" y="155" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_05i58ro_di" bpmnElement="Activity_05i58ro">
+        <dc:Bounds x="960" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0baioeu_di" bpmnElement="Event_0baioeu">
+        <dc:Bounds x="1132" y="302" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1140" y="345" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_06fyz53_di" bpmnElement="Flow_06fyz53">
+        <di:waypoint x="398" y="230" />
+        <di:waypoint x="500" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_099b4ed_di" bpmnElement="Flow_099b4ed">
+        <di:waypoint x="600" y="230" />
+        <di:waypoint x="675" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17b9ny5_di" bpmnElement="Flow_17b9ny5">
+        <di:waypoint x="700" y="205" />
+        <di:waypoint x="700" y="130" />
+        <di:waypoint x="790" y="130" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="693" y="80" width="74" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1qvup3d_di" bpmnElement="Flow_1qvup3d">
+        <di:waypoint x="700" y="255" />
+        <di:waypoint x="700" y="320" />
+        <di:waypoint x="790" y="320" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="693" y="330" width="74" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11bnjg3_di" bpmnElement="Flow_11bnjg3">
+        <di:waypoint x="890" y="320" />
+        <di:waypoint x="960" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1xr8aeu_di" bpmnElement="Flow_1xr8aeu">
+        <di:waypoint x="890" y="130" />
+        <di:waypoint x="1052" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19i90r4_di" bpmnElement="Flow_19i90r4">
+        <di:waypoint x="1060" y="320" />
+        <di:waypoint x="1132" y="320" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
