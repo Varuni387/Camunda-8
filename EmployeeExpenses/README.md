@@ -31,9 +31,6 @@ The **Employee Expense Reimbursement System** is a **Camunda 8** BPMN workflow d
 
 ### Installation Steps
 1. **Clone the Repository**
-   ```sh
-   git clone https://github.com/your-username/employee-expense-reimbursement.git
-   cd employee-expense-reimbursement
 
 2. **Start c8run**
    ```sh
