@@ -38,9 +38,7 @@ The **Clothing Recommendation System** is a **Camunda 8** BPMN workflow that sug
 
 ### Installation Steps
 1. **Clone the Repository**
-   ```sh
-   git clone https://github.com/your-username/clothing-recommendation.git
-   cd clothing-recommendation
+  
 2. **Start c8run**
    ```sh
    https://docs.camunda.io/docs/self-managed/setup/deploy/local/c8run/
