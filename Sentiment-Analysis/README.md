@@ -34,10 +34,7 @@ The **Sentiment Analysis System** is a **Camunda 8** BPMN workflow designed to a
 
 ### Installation Steps
 1. **Clone the Repository**
-   ```sh
-   git clone https://github.com/Varuni387/sentiment-analysis-system.git
-   cd sentiment-analysis-system
-
+  
 2. **Start c8run**
    ```sh
    https://docs.camunda.io/docs/self-managed/setup/deploy/local/c8run/
