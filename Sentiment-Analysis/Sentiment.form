@@ -1,0 +1,94 @@
+{
+  "components": [
+    {
+      "label": "Text",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1xyoazp",
+        "columns": null
+      },
+      "id": "Field_0ymglcb",
+      "key": "text"
+    },
+    {
+      "label": "Sentiment",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1xyoazp",
+        "columns": null
+      },
+      "id": "Field_1d7amea",
+      "key": "sentiment"
+    },
+    {
+      "label": "Score",
+      "type": "number",
+      "layout": {
+        "row": "Row_0nqp25k",
+        "columns": null
+      },
+      "id": "Field_1bf2rb0",
+      "key": "score"
+    },
+    {
+      "label": "Category",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0nqp25k",
+        "columns": null
+      },
+      "id": "Field_1vce9r0",
+      "key": "category"
+    },
+    {
+      "label": "Toxicity Score",
+      "type": "number",
+      "layout": {
+        "row": "Row_1wlztcm",
+        "columns": null
+      },
+      "id": "Field_0qvfevg",
+      "key": "toxicity"
+    },
+    {
+      "label": "Language",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1wlztcm",
+        "columns": null
+      },
+      "id": "Field_0g6gfag",
+      "key": "language"
+    },
+    {
+      "label": "Subjectivity Score",
+      "type": "number",
+      "layout": {
+        "row": "Row_03v3k15",
+        "columns": null
+      },
+      "id": "Field_0g11bxj",
+      "key": "subjective"
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Time stamp",
+      "type": "datetime",
+      "layout": {
+        "row": "Row_03v3k15",
+        "columns": null
+      },
+      "id": "Field_0fa6zmo",
+      "key": "timestamp"
+    }
+  ],
+  "type": "default",
+  "id": "Form_0ad2xqq",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.6.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.31.0"
+  },
+  "schemaVersion": 18
+}

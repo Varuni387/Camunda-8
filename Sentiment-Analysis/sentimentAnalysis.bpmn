@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_03h0rh2" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.31.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.6.0">
+  <bpmn:process id="Process_0bzrukx" name="Sentiment-analysis" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Start">
+      <bpmn:outgoing>Flow_16rt9a7</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="Activity_0zgm4do" name="Sentiment Analysis">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="analyse" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_16rt9a7</bpmn:incoming>
+      <bpmn:outgoing>Flow_16oikfd</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_1hammoa" name="End">
+      <bpmn:incoming>Flow_0gubt42</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_16rt9a7" sourceRef="StartEvent_1" targetRef="Activity_0zgm4do" />
+    <bpmn:sequenceFlow id="Flow_16oikfd" sourceRef="Activity_0zgm4do" targetRef="Activity_1he3q37" />
+    <bpmn:userTask id="Activity_1he3q37" name="Sentiment form">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formId="Form_0ad2xqq" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_16oikfd</bpmn:incoming>
+      <bpmn:outgoing>Flow_0gubt42</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0gubt42" sourceRef="Activity_1he3q37" targetRef="Event_1hammoa" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_0bzrukx">
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="182" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="188" y="145" width="24" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0zgm4do_di" bpmnElement="Activity_0zgm4do">
+        <dc:Bounds x="300" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1hammoa_di" bpmnElement="Event_1hammoa">
+        <dc:Bounds x="592" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="600" y="145" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1he3q37_di" bpmnElement="Activity_1he3q37">
+        <dc:Bounds x="440" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_16rt9a7_di" bpmnElement="Flow_16rt9a7">
+        <di:waypoint x="218" y="120" />
+        <di:waypoint x="300" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_16oikfd_di" bpmnElement="Flow_16oikfd">
+        <di:waypoint x="400" y="120" />
+        <di:waypoint x="440" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0gubt42_di" bpmnElement="Flow_0gubt42">
+        <di:waypoint x="540" y="120" />
+        <di:waypoint x="592" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
